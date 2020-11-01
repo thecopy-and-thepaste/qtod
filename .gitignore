@@ -1,0 +1,22 @@
+# System Files
+.DS_Store
+Thumbs.db
+
+# IDE - VSCode
+.vscode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+#AUXILIAR FILES
+__pycache__/
+*.log
+
+#VirtualEnv
+qtod_env/
+
+# By default the resulting files point to this path
+documents/

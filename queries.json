@@ -1,0 +1,59 @@
+{
+    "PLOS": [
+        {
+            "query": {
+                "fields": {
+                    "abstract": [
+                        "natural",
+                        "ecology"
+                    ]
+                },
+                "join_op": "OR",
+                "total": 7,
+                "page_span": 100
+            },
+            "spider_settings": {
+                "DESTINATION_PATH": "./documents/nat_ec",
+                "DELAY_TIME": 5
+            }
+        },
+        {
+            "query": {
+                "fields": {
+                    "abstract": [
+                        "natural"
+                    ]
+                },
+                "join_op": "OR",
+                "total": 5,
+                "burnout_time": 2,
+                "page_span": 100
+            },
+            "spider_settings": {
+                "DESTINATION_PATH": "./documents/nat",
+                "PERSISTENCE_FILENAME": "natural.csv",
+                "DELAY_TIME": 5
+            }
+        }
+    ],
+    "DUMMY": [
+        {
+            "id": 2,
+            "query": {
+                "fields": {
+                    "abstract": [
+                        "natural",
+                        "ecology"
+                    ]
+                },
+                "join_op": "OR",
+                "page_span": 100,
+                "total": 10
+            },
+            "spider_settings": {
+                "DESTINATION_PATH": "./documents",
+                "DELAY_TIME": 5
+            }
+        }
+    ]
+}
