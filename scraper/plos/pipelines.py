@@ -44,6 +44,7 @@ class SaveResource:
     def process_item(self, item, spider):
         # saving here
         try:
+            item_to_store = {}
             resource_url = item["resource_url"]
             doi = item["doi"]
             doc_filename = Path(os.path.join(
@@ -67,20 +68,31 @@ class SaveResource:
 
             # Persisting resources
             doc_filename.write_bytes(r.content)
+            meta_filenames = []
+            page_filenames = []
 
             for ix, text in enumerate(item["article-meta"]):
                 meta_filename = Path(os.path.join(
                     self.pages_path, f"{doi}-meta_{ix}.html"))
                 meta_filename.write_text(text)
+                meta_filenames.append(str(meta_filename))
 
             for ix, text in enumerate(item["article-content"]):
                 page_filename = Path(os.path.join(
                     self.pages_path, f"{doi}-page_{ix}.html"))
                 page_filename.write_text(text)
+                page_filenames.append(str(page_filename))
 
-            item["resource_filepath"] = str(doc_filename)
+            item_to_store={
+                "doi":doi,
+                "title": item["title"],
+                "content_filepath": page_filenames,
+                "meta_filepath":meta_filenames,
+                "resource_filepath": str(doc_filename),
+                "resource_url":item["resource_url"]
+            }
 
-            self.batch_df.append(item)
+            self.batch_df.append(item_to_store)
 
             return item
         except Exception as ex:

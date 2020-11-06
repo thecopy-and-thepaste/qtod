@@ -10,7 +10,8 @@
                 },
                 "join_op": "OR",
                 "total": 7,
-                "page_span": 100
+                "page_span": 100,
+                "burnout_time": 10
             },
             "spider_settings": {
                 "DESTINATION_PATH": "./documents/nat_ec",
