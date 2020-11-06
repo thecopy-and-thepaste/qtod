@@ -14,10 +14,10 @@ Users only need to configure the `queries.json` file with the sections related t
 ```json
 "ENDPOINT":{
     "query":{
-        [ opts ]
+        
     },
     "spider_settings": {
-        [ opts ]
+
     }
 }
 ```
@@ -66,28 +66,23 @@ In the `queries.json` file
 "PLOS": [  
     {
         "query": {
-            "fields": {
-                // For the abstract field the following values
+            "fields": {                
                 "abstract": [
                     "natural",
                     "ecology"
                     ]
                     },
-                // Joined by OR
                 "join_op": "OR",
-                // Total amount of 100 results in pages of 10
                 "total": 100,
                 "page_span": 10,
             },
             "spider_settings": {
-                // HTML and PDF stored here
                 "DESTINATION_PATH": "./documents/nat_ec",
-                // Waiting 5 secs between downloads
                 "DELAY_TIME": 5
             }
         },
         {
-            [. . .]
+            
         }
     ]
 ```
